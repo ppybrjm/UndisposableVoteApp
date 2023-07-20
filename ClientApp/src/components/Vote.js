@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Vote.css';
 
 export class Vote extends Component {
   static displayName = Vote.name;
@@ -10,20 +11,29 @@ export class Vote extends Component {
   }
 
   setVote(button_clicked) {
+    const vote_for = button_clicked.target.value
     this.setState({
-        CurrentVote: button_clicked.target.value
+        CurrentVote: vote_for
     });
   }
 
   render() {
     return (
-      <div>
-        <h1>Vote</h1>
+      <div className="votePage">
+        <h1>Trigger a Choice</h1>
 
-        <p aria-live="polite">Current count: <strong>{this.state.CurrentVote}</strong></p>
+        <p aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong></p>
 
-        <button className="btn btn-primary" value="A" onClick={this.setVote}>Vote 1</button>
-        <button className="btn btn-primary" value="B" onClick={this.setVote}>Vote 2</button>
+        <table>
+          <tr class="triangle-selectors">
+            <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")} ></div></td>
+            <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
+          </tr>
+          <tr>
+            <td><button className="btn btn-primary btn-A" value="A" onClick={this.setVote}>△</button></td>
+            <td><button className="btn btn-primary btn-B" value="B" onClick={this.setVote}>○</button></td>
+          </tr>
+        </table>
       </div>
     );
   }

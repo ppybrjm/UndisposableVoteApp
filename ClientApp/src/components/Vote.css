@@ -1,0 +1,60 @@
+.votePage {
+    background-image: linear-gradient(to bottom, #D6EAF8, #5499C7, #2980B9, #A569BD);
+    height:90vh
+}
+
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    padding: 5vh
+}
+
+table {
+    padding: 5vh;
+    width: 100%;
+}
+
+.triangle-selectors {
+    height: 16vh;
+}
+
+td {
+    text-align: center;
+}
+  
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 10vh solid transparent;
+	border-right: 10vh solid transparent;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.triange-A-select {
+    border-top: 15vh solid #A569BD; 
+}
+
+.triange-B-select {
+    border-top: 15vh solid #2980B9;
+}
+
+.hide {
+    display: none;
+}
+
+.btn-primary {
+    margin: 2vh;
+    height: 20vh;
+    width: 20vh;
+    font-size: xx-large;
+}
+
+.btn-A * {
+    background-color: #A569BD;
+}
+
+.btn-B * {
+    background-color: #0d6efd;
+}
