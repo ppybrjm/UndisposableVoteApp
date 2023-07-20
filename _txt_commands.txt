@@ -1,0 +1,9 @@
+dotnet new react -o reactnet
+    The template "ASP.NET Core with React.js" was created successfully.
+
+    Processing post-creation actions...
+    Restoring C:\Users\Mackay Family\Documents\CODE\reactnet\reactnet.csproj:
+    Determining projects to restore...
+    Restored C:\Users\Mackay Family\Documents\CODE\reactnet\reactnet.csproj (in 646 ms).
+    Restore succeeded.
+
