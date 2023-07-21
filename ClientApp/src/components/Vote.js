@@ -20,7 +20,7 @@ export class Vote extends Component {
   render() {
     return (
       <div className="votePage">
-        <h1>Trigger a Choice</h1>
+        <h1>What Should Princess Plum Do?</h1>
 
         <p aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong></p>
 

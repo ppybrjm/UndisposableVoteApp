@@ -1,10 +1,11 @@
 .votePage {
-    background-image: linear-gradient(to bottom, #D6EAF8, #5499C7, #2980B9, #A569BD);
+    background-image: linear-gradient(purple, blue,blue,cyan);
+    
     height:90vh
 }
 
 h1 {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
     color: white;
     text-align: center;
     padding: 5vh
