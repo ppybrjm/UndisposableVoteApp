@@ -1,8 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using VoterAPI.Data;
+using VotingAPI.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<VoterApiContext>
+    (opt => opt.UseInMemoryDatabase("CurrentVoterDB"));
+builder.Services.AddDbContext<VotingApiContext>
+    (opt => opt.UseInMemoryDatabase("CurrentVotingDB"));
 
 var app = builder.Build();
 
@@ -13,10 +22,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
 
 app.MapControllerRoute(
     name: "default",
