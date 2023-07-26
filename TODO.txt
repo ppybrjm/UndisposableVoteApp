@@ -1,0 +1,20 @@
+Database Connection working
+Both APIs using the same Database - https://stackoverflow.com/questions/43767933/entity-framework-core-using-multiple-dbcontexts
+
+Voter API - Open Voting, Close Voting, View Votes
+Voting API - Vote A / B
+            View Current Vote
+Voting Page - Vote A / B
+Voting Page - NOT spam (something with user sessions)
+
+Vote Setter Page - Password Protect
+
+Voting Page - Status Due to Current Vote
+
+Vote Setter Page - Status Due to Current Vote
+Vote Setter Page - React  - PieChart Update
+
+HOST somewhere
+
+
+
