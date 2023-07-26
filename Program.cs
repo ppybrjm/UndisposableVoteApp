@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using VoterAPI.Data;
-using VotingAPI.Data;
+using VoteAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +10,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<VoterApiContext>
-    (opt => opt.UseInMemoryDatabase("CurrentVoterDB"));
-builder.Services.AddDbContext<VotingApiContext>
-    (opt => opt.UseInMemoryDatabase("CurrentVotingDB"));
+builder.Services.AddDbContext<VoteApiContext>
+    (opt => opt.UseInMemoryDatabase("CurrentVoteDB"));
 
 var app = builder.Build();
 

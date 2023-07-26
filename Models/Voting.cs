@@ -1,4 +1,4 @@
-namespace VotingAPI.Models {
+namespace VoteAPI.Models {
     public class Voting {
         public int id { get; set; }
 

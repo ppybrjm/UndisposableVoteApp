@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using VotingAPI.Models;
+using VoteAPI.Models;
 
-namespace VotingAPI.Data {
-    public class VotingApiContext : DbContext {
+namespace VoteAPI.Data {
+    public class VoteApiContext : DbContext {
         public DbSet<Voting> Voting {get; set; }
+        public DbSet<Voter> Voter {get; set; }
 
-        public VotingApiContext(DbContextOptions<VotingApiContext> options) 
+        public VoteApiContext(DbContextOptions<VoteApiContext> options) 
             : base(options) {
             
         }
