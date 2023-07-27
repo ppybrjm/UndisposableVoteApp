@@ -1,5 +1,6 @@
-Voter Setting Page      >>   Open Vote -> Vote Result -> Close Vote (View Result) (With API Calls)
-Voting Page             >>   Wait -> Vote -> Wait                                 (With API Calls)
+Voter Setting Page      >> View Result Finish MVP Mockup
+Voter Setting Page      >> Open Vote -> Vote Result -> Close Vote (View Result)     (With API Calls)
+Voting Page             >> Wait -> Vote Page -> Wait                                (With API Calls)
 
 Voting Page             >> Vote
 Vote Setter Page        >> View Votes   & PieChart Update   (Right Way Round)
@@ -7,6 +8,8 @@ Vote Setter Page        >> View Votes   & PieChart Update   (Right Way Round)
 Voting Page             >> NOT spam (something with user sessions)
 Vote Setter Page        >> Password Protect
 Vote Setter API         >> Password Protect
+
+Remove all the uncnesscary Close, backend and frontend.
 
 HOST somewhere
 
