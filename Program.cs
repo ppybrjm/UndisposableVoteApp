@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using VoteAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 
