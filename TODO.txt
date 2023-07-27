@@ -1,20 +1,14 @@
-Database Connection working
-Both APIs using the same Database - https://stackoverflow.com/questions/43767933/entity-framework-core-using-multiple-dbcontexts
+Voter Setting Page      >>   Open Vote -> Vote Result -> Close Vote (View Result) (With API Calls)
+Voting Page             >>   Wait -> Vote -> Wait                                 (With API Calls)
 
-Voter API - Open Voting, Close Voting, View Votes
-Voting API - Vote A / B
-            View Current Vote
-Voting Page - Vote A / B
-Voting Page - NOT spam (something with user sessions)
+Voting Page             >> Vote
+Vote Setter Page        >> View Votes   & PieChart Update   (Right Way Round)
 
-Vote Setter Page - Password Protect
-
-Voting Page - Status Due to Current Vote
-
-Vote Setter Page - Status Due to Current Vote
-Vote Setter Page - React  - PieChart Update
+Voting Page             >> NOT spam (something with user sessions)
+Vote Setter Page        >> Password Protect
+Vote Setter API         >> Password Protect
 
 HOST somewhere
 
-
-
+> DELETE POLLS
+> WHERE DO LOGS EVEN GO? / How do I set up my logger
