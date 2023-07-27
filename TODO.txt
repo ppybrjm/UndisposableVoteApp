@@ -9,6 +9,8 @@ Voting Page             >> NOT spam (something with user sessions)
 Vote Setter Page        >> Password Protect
 Vote Setter API         >> Password Protect
 
+BUTTON - Purple.
+
 Remove all the uncnesscary Close, backend and frontend.
 
 HOST somewhere
