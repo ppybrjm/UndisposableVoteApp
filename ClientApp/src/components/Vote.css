@@ -1,7 +1,5 @@
 .votePage {
     background-image: linear-gradient(purple, blue,blue,cyan);
-    
-    height:90vh
 }
 
 h1 {
@@ -9,6 +7,10 @@ h1 {
     color: white;
     text-align: center;
     padding: 5vh
+}
+
+p.hidden {
+    color: white;
 }
 
 table {
@@ -45,17 +47,20 @@ td {
     display: none;
 }
 
-.btn-primary {
+.btn-vote {
     margin: 2vh;
     height: 20vh;
     width: 20vh;
-    font-size: xx-large;
+    font-size: 10vh;
+    color: white;
 }
 
-.btn-A * {
+.btn-A {
     background-color: #A569BD;
+    border-color: #A267B2;
 }
 
-.btn-B * {
-    background-color: #0d6efd;
+.btn-B {
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }

@@ -22,7 +22,7 @@ export class Vote extends Component {
       <div className="votePage">
         <h1>What Should Princess Plum Do?</h1>
 
-        <p aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong></p>
+        <p class='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong></p>
 
         <table>
           <tr class="triangle-selectors">
@@ -30,8 +30,8 @@ export class Vote extends Component {
             <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
           </tr>
           <tr>
-            <td><button className="btn btn-primary btn-A" value="A" onClick={this.setVote}>△</button></td>
-            <td><button className="btn btn-primary btn-B" value="B" onClick={this.setVote}>○</button></td>
+            <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
+            <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
           </tr>
         </table>
       </div>
