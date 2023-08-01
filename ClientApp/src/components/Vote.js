@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Cookies } from "react-cookie";
 import './Vote.css';
 
+const userCookies = new Cookies();
 
 export class Vote extends Component {
   static displayName = Vote.name;
@@ -10,7 +12,7 @@ export class Vote extends Component {
 
     this.state = { 
       CurrentVote: "NO", 
-      userID: "NOT SET" 
+      userID: userCookies.get('userID') || "NOT SET" 
     };
     this.setVote = this.setVote.bind(this);
   }
@@ -25,7 +27,7 @@ export class Vote extends Component {
       this.setState({
         userID: newUserId
       });
-      return "SET";
+      userCookies.set('userID', newUserId);
     }
     return this.state.userID;
   }
