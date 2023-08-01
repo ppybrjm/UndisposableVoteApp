@@ -1,13 +1,45 @@
 import React, { Component } from 'react';
 import './Vote.css';
 
+
 export class Vote extends Component {
   static displayName = Vote.name;
 
   constructor(props) {
     super(props);
-    this.state = { CurrentVote: "NO" };
-    this.setVote = this.setVote.bind(this);    
+
+    this.state = { 
+      CurrentVote: "NO", 
+      userID: "NOT SET" 
+    };
+    this.setVote = this.setVote.bind(this);
+  }
+
+  vote_not_open() {
+    return false;
+  }
+
+  getUserId() {
+    if (this.state.userID === "NOT SET") {
+      const newUserId = this.makeId(12);
+      this.setState({
+        userID: newUserId
+      });
+      return "SET";
+    }
+    return this.state.userID;
+  }
+
+  makeId(length) {
+      let result = '';
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      const charactersLength = characters.length;
+      let counter = 0;
+      while (counter < length) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
+      }
+      return result;
   }
 
   setVote(button_clicked) {
@@ -17,23 +49,26 @@ export class Vote extends Component {
     });
   }
 
+
   render() {
     return (
-      <div className="votePage">
-        <h1>What Should Princess Plum Do?</h1>
+      <div className="votePage page">
 
-        <p class='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong></p>
+            <h1>What Should Princess Plum Do?</h1>
 
-        <table>
-          <tr class="triangle-selectors">
-            <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")} ></div></td>
-            <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
-          </tr>
-          <tr>
-            <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
-            <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
-          </tr>
-        </table>
+            <p className='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong>, User_ID = {this.getUserId()}</p>
+
+            <table><tbody>
+              <tr className="triangle-selectors">
+                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")} ></div></td>
+                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
+              </tr>
+              <tr>
+                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
+                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
+              </tr>
+            </tbody></table>
+
       </div>
     );
   }
