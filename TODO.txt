@@ -1,15 +1,12 @@
-Voter Setting Page      >> View Result Finish MVP Mockup
 Voter Setting Page      >> Open Vote -> Vote Result -> Close Vote (View Result)     (With API Calls)
 Voting Page             >> Wait -> Vote Page -> Wait                                (With API Calls)
 
-Voting Page             >> Vote
-Vote Setter Page        >> View Votes   & PieChart Update   (Right Way Round)
+Voting Page             >> Vote (With UserID)
+Vote Setter Page        >> View Votes   & PieChart Update
 
-Voting Page             >> NOT spam (something with user sessions)
 Vote Setter Page        >> Password Protect
 Vote Setter API         >> Password Protect
 
-BUTTON - Purple.
 
 Remove all the uncnesscary Close, backend and frontend.
 
