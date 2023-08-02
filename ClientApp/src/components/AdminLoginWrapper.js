@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Cookies } from "react-cookie";
-import {VoteSetting} from './VoteSetting';
+import { AdminResultControllWrapper } from './AdminResultControllWrapper';
 import './VoteSetting.css';
 
 
@@ -10,7 +10,7 @@ export class AdminLoginWrapper extends Component {
     constructor(props) {
         super(props);
 
-        const password = adminCookies.get('password') || "10";
+        const password = adminCookies.get('password') || "100";
     
         this.state = {
             password: password,
@@ -51,7 +51,7 @@ export class AdminLoginWrapper extends Component {
         const password = this.state.password;
 
         let VoteSettingComponent = <br />;
-        if (this.state.verified) {VoteSettingComponent = <VoteSetting password={password} />}
+        if (this.state.verified) {VoteSettingComponent = <AdminResultControllWrapper password={password} />}
 
         return (
             <div className="voteSettingPage page">

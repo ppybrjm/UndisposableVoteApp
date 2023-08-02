@@ -52,10 +52,6 @@ export class VoteSetting extends Component {
             <td><button className="btn btn-primary btn-B" value="B">○</button><span> {this.percent(false)}</span></td>
           </tr>
         </tbody></table>
-
-        <div className="button-container">
-          <button className="btn btn-primary btn-closePole" value="A" onClick={this.setVote}>Close Pole</button>
-        </div>
       </div>
     );
   }
