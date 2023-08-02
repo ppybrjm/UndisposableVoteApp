@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Loading, NoVote, VotingPage } from "./VotingPage";
+import { Loading, ShowNotStarted, NoVote, VotingPage } from "./VotingPage";
 import './Vote.css';
 
 export class VoteWrapper extends Component {
@@ -9,6 +9,7 @@ export class VoteWrapper extends Component {
     super(props);
 
     this.state = { 
+      currentActiveShow: false,
       currentActivePole: false,
       currentActivePoleId: 0,
       loading: true
@@ -27,9 +28,11 @@ export class VoteWrapper extends Component {
   async getPole() {
     const response = await fetch('api/Vote/getActivePole');
     const data = await response.json();
-    const isActivePole = data["value"]["open"];
+    const isActiveShow = data["value"]["openShow"]
+    const isActivePole = data["value"]["openVote"];
     const mostRecentPole = data["value"]["most_recent_pole_id"];
     this.setState({ 
+      currentActiveShow: isActiveShow,
       currentActivePole: isActivePole, 
       currentActivePoleId: mostRecentPole,
       loading: false 
@@ -38,13 +41,15 @@ export class VoteWrapper extends Component {
 
   render() {
     const loading = (this.state.loading);
+    const activeShow = (this.state.currentActiveShow);
     const activePole = (this.state.currentActivePole);
     const activePoleId = (this.state.currentActivePoleId);
 
     let voteComponent;
     if (loading) { voteComponent = <Loading />}
-    else if(activePole) { voteComponent = <VotingPage activePoleId={activePoleId} />}
-    else {voteComponent = <NoVote />}
+    else if (!activeShow) { voteComponent = <ShowNotStarted /> }
+    else if (!activePole) { voteComponent = <NoVote />}
+    else {voteComponent = <VotingPage activePoleId={activePoleId} />}
 
     return (
       <div className="votePage page">

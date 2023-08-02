@@ -7,6 +7,10 @@ export class Loading extends Component {
     render () { return <h1>Loading Backend ...</h1> }
 }
 
+export class ShowNotStarted extends Component {
+    render () { return <h1>The Game has not yet begun ...</h1>}
+
+}
 export class NoVote extends Component {
     render () { return <h1>Game in Progress ...</h1>}
 }
@@ -55,13 +59,10 @@ export class VotingPage extends Component {
             "userId" :this.state.userID,
             "vote": vote_for
         });
-
-
         this.setState({
             CurrentVote: vote_for,
             userVote: userVote
         });
-        
         fetch('api/Vote/Vote', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
