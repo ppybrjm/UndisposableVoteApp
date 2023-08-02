@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Cookies } from "react-cookie";
+import { Loading, NoVote, VotingPage } from "./VotingPage";
 import './Vote.css';
-
-const userCookies = new Cookies();
 
 export class VoteWrapper extends Component {
   static displayName = "Vote";
@@ -11,66 +9,40 @@ export class VoteWrapper extends Component {
     super(props);
 
     this.state = { 
-      CurrentVote: "NO", 
-      userID: userCookies.get('userID') || "NOT SET" 
+      currentActivePole: false,
+      loading: true
     };
-    this.setVote = this.setVote.bind(this);
   }
 
-  vote_not_open() {
-    return false;
+  componentDidMount() {
+    this.getPole()
+    this.timerId = setInterval(() => this.getPole(), 10000); //10 Seconds
   }
 
-  getUserId() {
-    if (this.state.userID === "NOT SET") {
-      const newUserId = this.makeId(12);
-      this.setState({
-        userID: newUserId
-      });
-      userCookies.set('userID', newUserId);
-    }
-    return this.state.userID;
+  componentWillUnmount() {
+    clearInterval(this.timerId)
   }
 
-  makeId(length) {
-      let result = '';
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      const charactersLength = characters.length;
-      let counter = 0;
-      while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-      }
-      return result;
+  async getPole() {
+    const response = await fetch('api/Vote/isActivePole');
+    const data = await response.json();
+    const isActivePole = data["value"];
+    this.setState({ currentActivePole: isActivePole, loading: false });
   }
-
-  setVote(button_clicked) {
-    const vote_for = button_clicked.target.value
-    this.setState({
-        CurrentVote: vote_for
-    });
-  }
-
 
   render() {
+    const loading = (this.state.loading);
+    const activePole = (this.state.currentActivePole);
+
+    let voteComponent;
+    if (loading) { voteComponent = <Loading />}
+    else if(activePole) { voteComponent = <VotingPage />}
+    else {voteComponent = <NoVote />}
+
     return (
       <div className="votePage page">
-
-            <h1>What Should Princess Plum Do?</h1>
-
-            <p className='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong>, User_ID = {this.getUserId()}</p>
-
-            <table><tbody>
-              <tr className="triangle-selectors">
-                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")} ></div></td>
-                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
-              </tr>
-              <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
-                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
-              </tr>
-            </tbody></table>
-
+        <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>
+        { voteComponent }
       </div>
     );
   }
