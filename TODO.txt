@@ -1,5 +1,9 @@
-Voter Setting Page      >> Open Vote -> Vote Result -> Close Vote (View Result)     (With API Calls)
-Vote Setter Page        >> View Votes   & PieChart Update
+Voter Setting Page      
+    * Any of the Change State Button (Open/Close Show, Open/Close Chocie) re-renders Container.
+    * Display Buttons based on Current State
+    * VoteSetter Component continoulsy calls getResult
+    * VoteSetter UI is updated (PieChart & VoteCount)
+    * VoteSetter Component rename to "AdminVoteResultDisplay.js" & CSS file Change
 
 HOST somewhere
 
@@ -9,11 +13,4 @@ HOST somewhere
 > WHERE DO LOGS EVEN GO? / How do I set up my logger
 
 
-
-Vote Setter Page        >> Password Protect
 Vote Setter API         >> Password Protect
-
-
-
-
-Remove all the unnecessary Code, backend and frontend.
