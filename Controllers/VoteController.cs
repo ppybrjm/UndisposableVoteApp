@@ -175,12 +175,14 @@ namespace VoteAPI.Controllers {
             rob_log("getActivePole");
             bool openShow = isOpenShow();
             bool openVote = isOpenVote();
+            int active_show_id = 0;
             int most_recent_pole_id = 0;
             if (openShow && openVote) {
-                most_recent_pole_id = _context.Voter.Where(x => x.voteOpen == true).OrderBy(x => x.id).Last().id;
+                active_show_id = getOpenShow().id;
+                most_recent_pole_id = getOpenVote().id;
             }
             
-            return new JsonResult(Ok(new {openShow, openVote, most_recent_pole_id}));
+            return new JsonResult(Ok(new {openShow, openVote, active_show_id, most_recent_pole_id}));
         }
 
         ////////////////////////////////////////////
