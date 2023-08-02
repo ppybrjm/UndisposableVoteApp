@@ -1,5 +1,5 @@
 import { VoteWrapper } from "./components/VoteWrapper";
-import { AdminLoginWrapper } from "./components/AdminWrapper";
+import { AdminLoginWrapper } from "./components/AdminLoginWrapper";
 
 
 const AppRoutes = [
