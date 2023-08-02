@@ -84,6 +84,12 @@ namespace VoteAPI.Controllers {
             }
             var openShow = getOpenShow();
             openShow.showStart = false;
+
+            if (isOpenVote()) {
+                var most_recent_pole = getOpenVote();
+                most_recent_pole.voteOpen = false;
+            }
+
             _context.SaveChanges();
             return new JsonResult(Ok("Show Ended"));
         }
