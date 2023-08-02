@@ -26,7 +26,7 @@ export class VoteWrapper extends Component {
   }
 
   async getPole() {
-    const response = await fetch('api/Vote/getActivePole');
+    const response = await fetch('api/getActivePole');
     const data = await response.json();
     const isActiveShow = data["value"]["openShow"]
     const isActivePole = data["value"]["openVote"];

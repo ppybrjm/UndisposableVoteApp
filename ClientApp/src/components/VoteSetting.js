@@ -12,7 +12,7 @@ export const data = [
 export const options = {
     legend: 'none',
     backgroundColor: { fill:'transparent' },
-    colors: ['#0d6efd',  '#FF9900', '#A569BD']
+    colors: ['#0D6EFD',  '#FF9900', '#A569BD']
 };
 
 
@@ -21,10 +21,10 @@ export class VoteSetting extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { A_Vote: 0, B_Vote: 0 };
+    this.state = { pole_open: false, A_Vote: 0, B_Vote: 0 };
   }
 
-   percent(for_A) {
+  percent(for_A) {
     const total = this.state.A_Vote + this.state.B_Vote;
     if (total === 0) {
       return "No Votes Yet"
@@ -32,8 +32,6 @@ export class VoteSetting extends Component {
     const numerator = (for_A) ? this.state.A_Vote : this.state.B_Vote;
     return ((numerator/total).toFixed(2) * 100).toString() + "%";
   }
-
-  
 
   render() {
     return (
@@ -58,7 +56,7 @@ export class VoteSetting extends Component {
         <div class="button-container">
           <button className="btn btn-primary btn-closePole" value="A" onClick={this.setVote}>Close Pole</button>
         </div>
-      </div>     
+      </div>
     );
   }
 }

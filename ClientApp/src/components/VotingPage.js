@@ -63,7 +63,7 @@ export class VotingPage extends Component {
             CurrentVote: vote_for,
             userVote: userVote
         });
-        fetch('api/Vote/Vote', {
+        fetch('api/Vote', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: userVote
