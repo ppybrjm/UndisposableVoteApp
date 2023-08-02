@@ -2,6 +2,22 @@
     background-image: linear-gradient(to bottom, #D6EAF8, #5499C7, #2980B9, #A569BD);
 }
 
+div.loginCred {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    width: 8ch;
+}
+
+h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    color: white;
+    text-align: center;
+    padding: 3vh
+}
+
 .btn-closePole {
     background-color: #9b80a5;
     border-color: #ccc7ce;

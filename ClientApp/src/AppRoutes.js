@@ -1,5 +1,5 @@
 import { VoteWrapper } from "./components/VoteWrapper";
-import { VoteSetting  } from "./components/VoteSetting";
+import { AdminLoginWrapper } from "./components/AdminWrapper";
 
 
 const AppRoutes = [
@@ -8,8 +8,8 @@ const AppRoutes = [
     element: <VoteWrapper />
   },
   {
-    path: '/voteset/3664120',
-    element: <VoteSetting />
+    path: '/admin',
+    element: <AdminLoginWrapper />
   }
 ];
 

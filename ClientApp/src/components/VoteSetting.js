@@ -35,8 +35,8 @@ export class VoteSetting extends Component {
 
   render() {
     return (
-      <div className="voteSettingPage page">
-        <h1>Results</h1>
+      <div>
+        <h2>Results</h2>
 
         <Chart
           chartType="PieChart"
@@ -46,14 +46,14 @@ export class VoteSetting extends Component {
           height={"60vh"}
         />
 
-        <table>
+        <table><tbody>
           <tr>
             <td><button className="btn btn-primary btn-A" value="A">△</button><span> {this.percent(true)}</span></td>
             <td><button className="btn btn-primary btn-B" value="B">○</button><span> {this.percent(false)}</span></td>
           </tr>
-        </table>
+        </tbody></table>
 
-        <div class="button-container">
+        <div className="button-container">
           <button className="btn btn-primary btn-closePole" value="A" onClick={this.setVote}>Close Pole</button>
         </div>
       </div>
