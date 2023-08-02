@@ -1,19 +1,19 @@
 import { FetchData } from "./components/FetchData";
-import { Vote } from "./components/Vote";
+import { VoteWrapper } from "./components/Vote";
 import { VoteSetting  } from "./components/VoteSetting";
 
 
 const AppRoutes = [
   {
     index: true,
-    element: <Vote />
+    element: <VoteWrapper />
   },
   {
     path: '/voteset/3664120',
     element: <VoteSetting />
   },
   {
-    path: '/fetchdata',
+    path: '/fetch-data',
     element: <FetchData />
   }
 ];

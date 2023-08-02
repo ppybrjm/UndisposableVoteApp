@@ -4,8 +4,8 @@ import './Vote.css';
 
 const userCookies = new Cookies();
 
-export class Vote extends Component {
-  static displayName = Vote.name;
+export class VoteWrapper extends Component {
+  static displayName = "Vote";
 
   constructor(props) {
     super(props);
