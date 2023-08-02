@@ -6,9 +6,6 @@ HOST somewhere
 
 --------------------------
 
-
-
-> DELETE POLLS
 > WHERE DO LOGS EVEN GO? / How do I set up my logger
 
 

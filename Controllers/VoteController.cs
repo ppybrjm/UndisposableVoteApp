@@ -29,6 +29,16 @@ namespace VoteAPI.Controllers {
             var context_voting = _context.Voting.ToList();
             return new JsonResult(Ok(new {context_voter, context_voting}));
         }
+        
+        // Delete
+        [HttpDelete]
+        public JsonResult ClearAll() {
+            rob_log("clearAll");
+            _context.Voter.RemoveRange(_context.Voter);
+            _context.Voting.RemoveRange(_context.Voting);
+            _context.SaveChanges();
+            return new JsonResult(Ok());    
+        }
     
         // OpenNewVote
         [HttpPost]
