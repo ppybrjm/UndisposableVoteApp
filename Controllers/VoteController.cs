@@ -88,15 +88,20 @@ namespace VoteAPI.Controllers {
             return new JsonResult(Ok("Pole Closed"));
         }
 
-        // isActivePole
+        // getActivePole
         [HttpGet]
-        public JsonResult isActivePole() {
-            rob_log("isActivePole");
-            var most_recent_pole_count = _context.Voter
-                                        .Where(x => x.voteOpen == true)
-                                        .Count();
-            bool activePole = (most_recent_pole_count == 0) ? false : true; 
-            return new JsonResult(Ok(activePole));
+        public JsonResult getActivePole() {
+            rob_log("getActivePole");
+            var open_poles = _context.Voter.Where(x => x.voteOpen == true);
+            bool open;
+            int most_recent_pole_id = 0;
+
+            if (open_poles.Count() == 0) { open = false; }
+            else {
+                open = true;
+                most_recent_pole_id = open_poles.OrderBy(x => x.id).Last().id;
+            }
+            return new JsonResult(Ok(new {open, most_recent_pole_id}));
         }
 
         // vote

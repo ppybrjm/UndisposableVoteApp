@@ -51,7 +51,7 @@ export class VotingPage extends Component {
     setVote(button_clicked) {
         const vote_for = button_clicked.target.value
         const userVote = JSON.stringify({
-            "voterId": 1, //TODO-This!
+            "voterId": this.props.activePoleId,
             "userId" :this.state.userID,
             "vote": vote_for
         });

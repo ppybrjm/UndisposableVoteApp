@@ -1,8 +1,4 @@
 Voter Setting Page      >> Open Vote -> Vote Result -> Close Vote (View Result)     (With API Calls)
-Voting Page             >> Wait -> Vote Page -> Wait                                (With API Calls)
-
-Voting Page             >> Vote (With UserID)
-        voterId
 Vote Setter Page        >> View Votes   & PieChart Update
 
 HOST somewhere
@@ -23,76 +19,4 @@ Vote Setter API         >> Password Protect
 
 
 
-Remove all the uncnesscary Close, backend and frontend.
-
-
-Put all the VOTING PAGE code back:
-
-    this.state = { 
-      userID: userCookies.get('userID') || "NOT SET",
-      CurrentVote: "NO", 
-
-    this.setVote = this.setVote.bind(this);
-
-
-
-  getUserId() {
-    if (this.state.userID === "NOT SET") {
-      const newUserId = this.makeId(12);
-      this.setState({
-        userID: newUserId
-      });
-      userCookies.set('userID', newUserId);
-    }
-    return this.state.userID;
-  }
-
-  makeId(length) {
-      let result = '';
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      const charactersLength = characters.length;
-      let counter = 0;
-      while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-      }
-      return result;
-  }
-
-
-
-
-  setVote(button_clicked) {
-    const vote_for = button_clicked.target.value
-    this.setState({
-        CurrentVote: vote_for
-    });
-    fetch('api/Vote/Vote', {
-      method: 'POST',
-      mode: 'cors',
-      body: JSON.stringify({
-        "voterId": 7, //TODO-This!
-        "userId" :this.state.userID,
-        "vote": vote_for
-      })
-    })
-  }
-
-
-
-          <div>
-            <h1>What Should Princess Plum Do?</h1>
-
-            <p className='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong>, User_ID = {this.getUserId()}</p>       
-
-            <table><tbody>
-              <tr className="triangle-selectors">
-                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}></div></td>
-                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
-              </tr>
-              <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
-                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
-              </tr>
-            </tbody></table>
-          </div>
+Remove all the unnecessary Code, backend and frontend.
