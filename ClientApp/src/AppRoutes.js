@@ -1,4 +1,3 @@
-import { FetchData } from "./components/FetchData";
 import { VoteWrapper } from "./components/VoteWrapper";
 import { VoteSetting  } from "./components/VoteSetting";
 
