@@ -5,7 +5,7 @@ using VoteAPI.Data;
 namespace VoteAPI.Controllers {
 
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[action]")]
     public class VoteController : ControllerBase {
         private readonly VoteApiContext _context;
 
