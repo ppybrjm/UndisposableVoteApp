@@ -11,10 +11,6 @@ const AppRoutes = [
   {
     path: '/voteset/3664120',
     element: <VoteSetting />
-  },
-  {
-    path: '/fetch-data',
-    element: <FetchData />
   }
 ];
 
