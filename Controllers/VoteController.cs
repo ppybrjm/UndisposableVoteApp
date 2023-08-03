@@ -105,8 +105,12 @@ namespace VoteAPI.Controllers {
         private Voter getOpenVote() {
             return _context.Voter.Where(x => x.voteOpen == true).OrderBy(x => x.id).Last();
         }
+        }
 
         private JsonResult badVoteDebug(string log_message) {
+            rob_log(log_message);
+            var open_vote_list = _context.Voter.Where(x => x.voteOpen == true).Select(x=>x).ToList();
+            return new JsonResult(BadRequest(new {log_message, open_vote_list}));
             rob_log(log_message);
             var open_vote_list = _context.Voter.Where(x => x.voteOpen == true).Select(x=>x).ToList();
             return new JsonResult(BadRequest(new {log_message, open_vote_list}));
@@ -158,12 +162,20 @@ namespace VoteAPI.Controllers {
             return _context.Voting.Where(v => v.voterId == pole_id).Count(v => v.vote.Equals(C));
         }
 
-        // getPollInfo  getActivePole
+        // getPollInfo  getPollInfo  getActivePole
         [HttpGet]
+        public JsonResult getPollInfo() {
+            rob_log("getPollInfo");
         public JsonResult getPollInfo() {
             rob_log("getPollInfo");
             bool openShow = isOpenShow();
             bool openVote = isOpenVote();
+            int activeShowId = (openShow) ? getOpenShow().id : 0;
+            int recentPollId = (openShow) ? getMostRecentVoteIDInShow(activeShowId) : 0;
+            int aVoteCount = (openShow) ? getVotingCount(recentPollId, 'A') : 0;
+            int bVoteCount = (openShow) ? getVotingCount(recentPollId, 'B') : 0;
+
+            return new JsonResult(Ok(new {openShow, openVote, activeShowId, recentPollId, aVoteCount, bVoteCount}));
             int activeShowId = (openShow) ? getOpenShow().id : 0;
             int recentPollId = (openShow) ? getMostRecentVoteIDInShow(activeShowId) : 0;
             int aVoteCount = (openShow) ? getVotingCount(recentPollId, 'A') : 0;
