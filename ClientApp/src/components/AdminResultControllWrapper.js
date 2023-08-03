@@ -20,22 +20,22 @@ export class AdminResultControllWrapper extends Component {
     }
 
     componentDidMount() {
-        this.getPole()
+        this.getPoll()
     }
 
-    async getPole() {
+    async getPoll() {
         const response = await fetch('api/getPollInfo');
         const data = await response.json();
         this.setState({ 
             currentActiveShow: data["value"]["openShow"],
-            currentActivePoll: data["value"]["openVote"], 
+            currentActivePoll: data["value"]["openVote"],
             currentActiveShowID: data["value"]["activeShowId"],
             loading: false 
         });
     }
 
     async rerenderParentCallback() {
-        await this.getPole();
+        await this.getPoll();
         this.forceUpdate();
     }
 
@@ -43,11 +43,11 @@ export class AdminResultControllWrapper extends Component {
         const loading = (this.state.loading);
         const activeShow = (this.state.currentActiveShow);
         const activePoll = (this.state.currentActivePoll);
-        const ActiveShowId = (this.state.currentActiveShowID);
+        const activeShowId = (this.state.currentActiveShowID);
 
         let controllComponent;
         if (loading) { controllComponent = <Loading />}
-        else {controllComponent = <AdminVoteControll activeShowId={ActiveShowId} activeShow={activeShow} activePole={activePoll} rerenderParentCallback={this.rerenderParentCallback}/>}
+        else {controllComponent = <AdminVoteControll activeShowId={activeShowId} activeShow={activeShow} activePoll={activePoll} rerenderParentCallback={this.rerenderParentCallback}/>}
 
         let resultComponent;
         if (activeShow && activePoll) {resultComponent = <VoteSetting />}

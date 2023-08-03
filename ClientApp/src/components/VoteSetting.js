@@ -21,7 +21,7 @@ export class VoteSetting extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { pole_open: false, A_Vote: 0, B_Vote: 0 };
+    this.state = { poll_open: false, A_Vote: 0, B_Vote: 0 };
   }
 
   percent(for_A) {

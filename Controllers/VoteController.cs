@@ -86,8 +86,8 @@ namespace VoteAPI.Controllers {
             openShow.showStart = false;
 
             if (isOpenVote()) {
-                var most_recent_pole = getOpenVote();
-                most_recent_pole.voteOpen = false;
+                var most_recent_poll = getOpenVote();
+                most_recent_poll.voteOpen = false;
             }
 
             _context.SaveChanges();
@@ -120,14 +120,14 @@ namespace VoteAPI.Controllers {
                 return badShowDebug("OpenNewVote - No Single Active Show");
             }
             if(isOpenVote()) {
-                return badVoteDebug("OpenNewVote - Pole Already Open");
+                return badVoteDebug("OpenNewVote - Vote Already Open");
             }
             var openShow = getOpenShow();
             voter.show_id = openShow.id;
 
             _context.Voter.Add(voter);
             _context.SaveChanges();
-            rob_log("OpenNewVote - Created Pole");
+            rob_log("OpenNewVote - Created Vote-Pole");
             return new JsonResult(Ok(voter));
         }
 
@@ -141,10 +141,10 @@ namespace VoteAPI.Controllers {
             if(!isOpenVote()) {
                 return badVoteDebug("CloseVote - No Single Active Vote");
             }
-            var most_recent_pole = getOpenVote();
-            most_recent_pole.voteOpen = false;
+            var most_recent_poll = getOpenVote();
+            most_recent_poll.voteOpen = false;
             _context.SaveChanges();
-            return new JsonResult(Ok("Pole Closed"));
+            return new JsonResult(Ok("Vote-Pole Closed"));
         }
 
         ////////////////////////////////////////////
@@ -154,11 +154,11 @@ namespace VoteAPI.Controllers {
             return _context.Voter.Where(x => x.show_id == showId).OrderBy(x => x.id).Last().id;
         }
 
-        private int getVotingCount(int pole_id, char C) {
-            return _context.Voting.Where(v => v.voterId == pole_id).Count(v => v.vote.Equals(C));
+        private int getVotingCount(int poll_id, char C) {
+            return _context.Voting.Where(v => v.voterId == poll_id).Count(v => v.vote.Equals(C));
         }
 
-        // getPollInfo  getActivePole
+        // getPollInfo
         [HttpGet]
         public JsonResult getPollInfo() {
             rob_log("getPollInfo");
@@ -180,7 +180,7 @@ namespace VoteAPI.Controllers {
             if (!openShow || !openVote) return "Voting is Not Open";
             
             var currentVote = getOpenVote();
-            if (currentVote.id != voting.voterId) return "Incorrect Pole ID";
+            if (currentVote.id != voting.voterId) return "Incorrect Vote-Poll ID";
                 
             if(!(voting.vote.Equals('A') || voting.vote.Equals('B')))  return "Invalid Vote";
 

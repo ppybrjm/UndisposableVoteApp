@@ -17,15 +17,15 @@ export class VoteWrapper extends Component {
     }
 
     componentDidMount() {
-        this.getPole()
-        this.timerId = setInterval(() => this.getPole(), 2000); //2 Seconds
+        this.getPoll()
+        this.timerId = setInterval(() => this.getPoll(), 2000); //2 Seconds
     }
 
     componentWillUnmount() {
         clearInterval(this.timerId)
     }
 
-    async getPole() {
+    async getPoll() {
         const response = await fetch('api/getPollInfo');
         const data = await response.json();
         this.setState({ 
@@ -46,7 +46,7 @@ export class VoteWrapper extends Component {
         if (loading) { voteComponent = <Loading />}
         else if (!activeShow) { voteComponent = <ShowNotStarted /> }
         else if (!activePoll) { voteComponent = <NoVote />}
-        else {voteComponent = <VotingPage activePoleId={recentPollID} />}
+        else {voteComponent = <VotingPage activePollId={recentPollID} />}
 
         return (
         <div className="votePage page">

@@ -6,8 +6,8 @@ export class AdminVoteControll extends Component {
 
         this.OpenShow = this.OpenShow.bind(this);
         this.CloseShow = this.CloseShow.bind(this);
-        this.OpenPole = this.OpenPole.bind(this);
-        this.ClosePole = this.ClosePole.bind(this);
+        this.OpenPoll = this.OpenPoll.bind(this);
+        this.ClosePoll = this.ClosePoll.bind(this);
     }
 
     APIPost(api_path, JSON_body) {
@@ -22,18 +22,18 @@ export class AdminVoteControll extends Component {
 
     OpenShow() {        this.APIPost('api/StartTheShow', JSON.stringify({"showStart": true}))    }
     CloseShow() {       this.APIPost('api/EndTheShow', null)    }
-    OpenPole() {        this.APIPost('api/OpenNewVote', JSON.stringify({"voteOpen": true, "show_id": this.props.activeShowId}))    }
-    ClosePole() {       this.APIPost('api/CloseVote', null)     }
+    OpenPoll() {        this.APIPost('api/OpenNewVote', JSON.stringify({"voteOpen": true, "show_id": this.props.activeShowId}))    }
+    ClosePoll() {       this.APIPost('api/CloseVote', null)     }
         
     render () {
-        let OpenShowButton = <td><button className="btn btn-primary btn-closePole" onClick={this.OpenShow}>Open Show</button></td>
-        let CloseShowButton = <td><button className="btn btn-primary btn-closePole" onClick={this.CloseShow}>Close Show</button></td>
-        let OpenChoiceButton = <td><button className="btn btn-primary btn-closePole" onClick={this.OpenPole}>Open Choice</button></td>
-        let closeChoiceButton = <td><button className="btn btn-primary btn-closePole" onClick={this.ClosePole}>Close Choice</button></td>
+        let OpenShowButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.OpenShow}>Open Show</button></td>
+        let CloseShowButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.CloseShow}>Close Show</button></td>
+        let OpenChoiceButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.OpenPoll}>Open Choice</button></td>
+        let closeChoiceButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.ClosePoll}>Close Choice</button></td>
 
         let buttons;
         if (this.props.activeShow === false) { buttons = <tr> {OpenShowButton} </tr>}
-        else if (this.props.activePole === false) { buttons = <tr> {CloseShowButton} {OpenChoiceButton} </tr>}
+        else if (this.props.activePoll === false) { buttons = <tr> {CloseShowButton} {OpenChoiceButton} </tr>}
         else { buttons = <tr> {closeChoiceButton} </tr> }
 
         return (
