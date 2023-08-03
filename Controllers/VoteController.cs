@@ -104,12 +104,12 @@ namespace VoteAPI.Controllers {
 
         private Voter getOpenVote() {
             return _context.Voter.Where(x => x.voteOpen == true).OrderBy(x => x.id).Last();
-        }   
+        }
 
         private JsonResult badVoteDebug(string log_message) {
-                rob_log(log_message);
-                var open_vote_list = _context.Voter.Where(x => x.voteOpen == true).Select(x=>x).ToList();
-                return new JsonResult(BadRequest(new {log_message, open_vote_list}));
+            rob_log(log_message);
+            var open_vote_list = _context.Voter.Where(x => x.voteOpen == true).Select(x=>x).ToList();
+            return new JsonResult(BadRequest(new {log_message, open_vote_list}));
         }
 
         // OpenNewVote
@@ -148,41 +148,28 @@ namespace VoteAPI.Controllers {
         }
 
         ////////////////////////////////////////////
-
-        // GetMostRecentVote
-        [HttpGet]
-        public JsonResult GetMostRecentVote() {
-            rob_log("GetMostRecentVote");
-            var howManyPoles = _context.Voter.Count();
-            if (howManyPoles == 0) {
-                rob_log("GetMostRecentVote - No Poles");
-                return new JsonResult(Ok("No Poles"));
-            }
-            
-            var most_recent_pole = _context.Voter
-                                   .OrderBy(x => x.id)
-                                   .Last();
-
-            var voting_in_pole = _context.Voting.Where(v => v.voterId == most_recent_pole.id);
-            var aVoteCount = voting_in_pole.Count(v => v.vote.Equals('A'));
-            var bVoteCount = voting_in_pole.Count(v => v.vote.Equals('B'));
-            return new JsonResult(Ok(new {most_recent_pole, aVoteCount, bVoteCount}));
+        private Voter getMostRecentVoteIDInShow(int showId) {
+            int count = _context.Voter.Count(x => x.show_id == show_id);
+            if (count == 0) return -1;
+            return _context.Voter.Where(x => x.show_id == showId).OrderBy(x => x.id).Last().id;
         }
 
-        // getActivePole
+        private int getVotingCount(int pole_id, char C) {
+            return _context.Voting.Where(v => v.voterId == pole_id).Count(v => v.vote.Equals(C));
+        }
+
+        // getPollInfo  getActivePole
         [HttpGet]
-        public JsonResult getActivePole() {
-            rob_log("getActivePole");
+        public JsonResult getPollInfo() {
+            rob_log("getPollInfo");
             bool openShow = isOpenShow();
             bool openVote = isOpenVote();
-            int active_show_id = 0;
-            int most_recent_pole_id = 0;
-            if (openShow && openVote) {
-                active_show_id = getOpenShow().id;
-                most_recent_pole_id = getOpenVote().id;
-            }
-            
-            return new JsonResult(Ok(new {openShow, openVote, active_show_id, most_recent_pole_id}));
+            int activeShowId = (openShow) ? getOpenShow().id : 0;
+            int recentPollId = (openShow) ? getMostRecentVoteIDInShow(activeShowId) : 0;
+            int aVoteCount = (openShow) ? getVotingCount(recentPollId, 'A') : 0;
+            int bVoteCount = (openShow) ? getVotingCount(recentPollId, 'B') : 0;
+
+            return new JsonResult(Ok(new {openShow, openVote, activeShowId, recentPollId, aVoteCount, bVoteCount}));
         }
 
         ////////////////////////////////////////////

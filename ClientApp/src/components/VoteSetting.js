@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
 import './VoteSetting.css';
 
-export const data = [
+const data = [
     ["○ / △", "Count"],
     ["○", 1],
     ["Neither", 1],
     ["△", 1],
 ];
 
-export const options = {
+const options = {
     legend: 'none',
     backgroundColor: { fill:'transparent' },
     colors: ['#0D6EFD',  '#FF9900', '#A569BD']
