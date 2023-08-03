@@ -11,8 +11,8 @@ export class AdminResultControllWrapper extends Component {
    
         this.state = {
             currentActiveShow: false,
-            currentActivePole: false,
-            currentActiveShowId: 0,
+            currentActivePoll: false,
+            currentActiveShowID: 0,
             loading: true
         };
 
@@ -24,16 +24,13 @@ export class AdminResultControllWrapper extends Component {
     }
 
     async getPole() {
-        const response = await fetch('api/getActivePole');
+        const response = await fetch('api/getPollInfo');
         const data = await response.json();
-        const isActiveShow = data["value"]["openShow"]
-        const isActivePole = data["value"]["openVote"];
-        const active_show_id = data["value"]["active_show_id"];
         this.setState({ 
-          currentActiveShow: isActiveShow,
-          currentActivePole: isActivePole, 
-          currentActiveShowId: active_show_id,
-          loading: false 
+            currentActiveShow: data["value"]["openShow"],
+            currentActivePoll: data["value"]["openVote"], 
+            currentActiveShowID: data["value"]["activeShowId"],
+            loading: false 
         });
     }
 
@@ -45,15 +42,15 @@ export class AdminResultControllWrapper extends Component {
     render () { 
         const loading = (this.state.loading);
         const activeShow = (this.state.currentActiveShow);
-        const activePole = (this.state.currentActivePole);
-        const ActiveShowId = (this.state.currentActiveShowId);
+        const activePoll = (this.state.currentActivePoll);
+        const ActiveShowId = (this.state.currentActiveShowID);
 
         let controllComponent;
         if (loading) { controllComponent = <Loading />}
-        else {controllComponent = <AdminVoteControll activeShowId={ActiveShowId} activeShow={activeShow} activePole={activePole} rerenderParentCallback={this.rerenderParentCallback}/>}
+        else {controllComponent = <AdminVoteControll activeShowId={ActiveShowId} activeShow={activeShow} activePole={activePoll} rerenderParentCallback={this.rerenderParentCallback}/>}
 
         let resultComponent;
-        if (activeShow && activePole) {resultComponent = <VoteSetting />}
+        if (activeShow && activePoll) {resultComponent = <VoteSetting />}
         else {resultComponent = <br />}
 
         //    <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>
