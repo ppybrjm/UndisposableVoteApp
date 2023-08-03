@@ -4,28 +4,15 @@ export class AdminVoteControll extends Component {
     constructor(props) {
         super(props);
 
-        // this.toggleShow = this.toggleShow.bind(this);
-        // this.toggleVote = this.toggleVote.bind(this);
-
         this.OpenShow = this.OpenShow.bind(this);
         this.CloseShow = this.CloseShow.bind(this);
         this.OpenPole = this.OpenPole.bind(this);
         this.ClosePole = this.ClosePole.bind(this);
     }
 
-    // toggleShow() {
-    //     if (this.props.currentActiveShow) {
-
-    //     }
-    // }
-
-    // toggleVote() {
-    //     if (this.props.currentActivePole) {}
-
-
-    // }
-
     APIPost(api_path, JSON_body) {
+        this.props.rerenderParentCallback();
+
         fetch(api_path, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -39,24 +26,19 @@ export class AdminVoteControll extends Component {
     ClosePole() {       this.APIPost('api/CloseVote', null)     }
         
     render () {
+        let OpenShowButton = <td><button className="btn btn-primary btn-closePole" onClick={this.OpenShow}>Open Show</button></td>
+        let CloseShowButton = <td><button className="btn btn-primary btn-closePole" onClick={this.CloseShow}>Close Show</button></td>
+        let OpenChoiceButton = <td><button className="btn btn-primary btn-closePole" onClick={this.OpenPole}>Open Choice</button></td>
+        let closeChoiceButton = <td><button className="btn btn-primary btn-closePole" onClick={this.ClosePole}>Close Choice</button></td>
 
-        // const showText = (this.props.currentActiveShow) ? "Close Show" : "Open Show"
-        // const displayPole = this.props.currentActiveShow;
-        // const poleText = (this.props.currentActivePole) ? "Close Choice" : "Open Choice"
-        // const enableShow = !(this.props.currentActivePole);
-        // <td><button className="btn btn-primary btn-closePole" onClick={this.toggleShow} enabled={enableShow}>{showText}</button></td>
-        // <td><button className="btn btn-primary btn-closePole" onClick={this.toggleVote} display={displayPole}>{poleText}</button></td>
-       
+        let buttons;
+        if (this.props.activeShow === false) { buttons = <tr> {OpenShowButton} </tr>}
+        else if (this.props.activePole === false) { buttons = <tr> {CloseShowButton} {OpenChoiceButton} </tr>}
+        else { buttons = <tr> {closeChoiceButton} </tr> }
+
         return (
             <div className="button-container">                
-                <table><tbody>
-                    <tr>
-                        <td><button className="btn btn-primary btn-closePole" onClick={this.OpenShow}>Open Show</button></td>
-                        <td><button className="btn btn-primary btn-closePole" onClick={this.CloseShow}>Close Show</button></td>
-                        <td><button className="btn btn-primary btn-closePole" onClick={this.OpenPole}>Open Choice</button></td>
-                        <td><button className="btn btn-primary btn-closePole" onClick={this.ClosePole}>Close Choice</button></td>
-                    </tr>
-                </tbody></table>
+                <table><tbody>{buttons}</tbody></table>
             </div>
         )
     }

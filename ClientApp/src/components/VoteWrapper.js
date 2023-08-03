@@ -18,7 +18,7 @@ export class VoteWrapper extends Component {
 
   componentDidMount() {
     this.getPole()
-    this.timerId = setInterval(() => this.getPole(), 10000); //10 Seconds
+    this.timerId = setInterval(() => this.getPole(), 2000); //2 Seconds
   }
 
   componentWillUnmount() {

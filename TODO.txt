@@ -1,6 +1,4 @@
 Voter Setting Page      
-    * Any of the Change State Button (Open/Close Show, Open/Close Chocie) re-renders Container.
-    * Display Buttons based on Current State
     * VoteSetter Component continoulsy calls getResult
     * VoteSetter UI is updated (PieChart & VoteCount)
     * VoteSetter Component rename to "AdminVoteResultDisplay.js" & CSS file Change

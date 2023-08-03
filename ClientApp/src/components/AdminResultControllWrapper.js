@@ -15,6 +15,8 @@ export class AdminResultControllWrapper extends Component {
             currentActiveShowId: 0,
             loading: true
         };
+
+        this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
     }
 
     componentDidMount() {
@@ -35,6 +37,11 @@ export class AdminResultControllWrapper extends Component {
         });
     }
 
+    async rerenderParentCallback() {
+        await this.getPole();
+        this.forceUpdate();
+    }
+
     render () { 
         const loading = (this.state.loading);
         const activeShow = (this.state.currentActiveShow);
@@ -43,15 +50,17 @@ export class AdminResultControllWrapper extends Component {
 
         let controllComponent;
         if (loading) { controllComponent = <Loading />}
-        else {controllComponent = <AdminVoteControll activeShowId={ActiveShowId} activeShow={activeShow} activePole={activePole}/>}
+        else {controllComponent = <AdminVoteControll activeShowId={ActiveShowId} activeShow={activeShow} activePole={activePole} rerenderParentCallback={this.rerenderParentCallback}/>}
 
         let resultComponent;
         if (activeShow && activePole) {resultComponent = <VoteSetting />}
         else {resultComponent = <br />}
 
+        //    <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>
+
+
         return (
             <div>
-                <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>
                 { resultComponent }
                 { controllComponent }
             </div>
