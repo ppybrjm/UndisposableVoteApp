@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
 import './VoteSetting.css';
 
+
+
 const options = {
     legend: 'none',
     backgroundColor: { fill:'transparent' },
     colors: ['#0D6EFD',  '#FF9900', '#A569BD']
 };
 
-
-export class AdminVoteResultDisplay extends Component {
-    static displayName = AdminVoteResultDisplay.name;
+// Current Copy of AdminVoteResultDisplay
+export class AdminVoteLiveResultPuller extends Component {
+    static displayName = AdminVoteLiveResultPuller.name;
 
     constructor(props) {
         super(props);
