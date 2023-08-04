@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
 import './VoteSetting.css';
 
-const data = [
-    ["○ / △", "Count"],
-    ["○", 1],
-    ["Neither", 1],
-    ["△", 1],
-];
+
 
 const options = {
     legend: 'none',
@@ -17,43 +12,93 @@ const options = {
 
 
 export class VoteSetting extends Component {
-  static displayName = VoteSetting.name;
+    static displayName = VoteSetting.name;
 
-  constructor(props) {
-    super(props);
-    this.state = { poll_open: false, A_Vote: 0, B_Vote: 0 };
-  }
-
-  percent(for_A) {
-    const total = this.state.A_Vote + this.state.B_Vote;
-    if (total === 0) {
-      return "No Votes Yet"
+    constructor(props) {
+        super(props);
+        this.state = { 
+            A_Vote: 0,
+            B_Vote: 0,
+            loaded: false,
+        };
     }
-    const numerator = (for_A) ? this.state.A_Vote : this.state.B_Vote;
-    return ((numerator/total).toFixed(2) * 100).toString() + "%";
-  }
 
-  render() {
-    return (
-      <div>
-        <h2>Results</h2>
+    componentDidMount() {
+        if (this.props.pullData) {
+            this.timerId = setInterval(() => this.getPoll(), 500); //0.5 Seconds
+        }
+    }
 
-        <Chart
-          chartType="PieChart"
-          data={data}
-          options={options}
-          width={"100%"}
-          height={"60vh"}
-        />
+    componentWillUnmount() {
+        if (this.props.pullData) {
+            clearInterval(this.timerId);
+        }
+    }
 
-        <table><tbody>
-          <tr>
-            <td><button className="btn btn-primary btn-A" value="A">△</button><span> {this.percent(true)}</span></td>
-            <td><button className="btn btn-primary btn-B" value="B">○</button><span> {this.percent(false)}</span></td>
-          </tr>
-        </tbody></table>
-      </div>
-    );
-  }
+    async getPoll() {
+        const response = await fetch('api/getPollInfo');
+        const data = await response.json();
+        this.setState({ 
+            A_Vote: data["value"]["aVoteCount"],
+            B_Vote: data["value"]["bVoteCount"],
+            loaded: true
+        });
+    }
+
+    title() {
+        if (this.props.pullData) {
+            if (this.state.loaded === false) return "LOADING...";
+            else return "Current Results..."
+        } else {
+            if (this.props.A_Vote === this.props.B_Vote) return "Results IN: Draw!"
+            else if (this.props.A_Vote > this.props.B_Vote) return "Results IN: △ Wins"
+            else { return "Results IN: O Wins"; }
+        }
+    }
+
+    getData() {
+        const A = (this.props.pullData) ? this.state.A_Vote : this.props.A_Vote;
+        const B = (this.props.pullData) ? this.state.B_Vote : this.props.B_Vote;
+        const Neither = ((A+B) > 0) ? 0 : 1;
+       
+        return [
+            ["○ / △", "Count"],
+            ["○", B],
+            ["Neither", Neither],
+            ["△", A],
+        ];
+    }
+    percent(for_A) {
+        const A = (this.props.pullData) ? this.state.A_Vote : this.props.A_Vote;
+        const B = (this.props.pullData) ? this.state.B_Vote : this.props.B_Vote;
+        const total = A + B;
+        if (total === 0)    return "No Votes Yet"
+    
+        const numerator = (for_A) ? A : B;
+        return ((numerator/total).toFixed(2) * 100).toString() + "% (" + numerator.toString() + ")";
+    }
+
+    render() {
+        return (
+        <div>
+            <h2>{this.title()}</h2>
+
+            <Chart
+            chartType="PieChart"
+            data={this.getData()}
+            options={options}
+            width={"100%"}
+            height={"60vh"}
+            />
+
+            <table><tbody>
+            <tr>
+                <td><button className="btn btn-primary btn-A" value="A">△</button><span> {this.percent(true)}</span></td>
+                <td><button className="btn btn-primary btn-B" value="B">○</button><span> {this.percent(false)}</span></td>
+            </tr>
+            </tbody></table>
+        </div>
+        );
+    }
 }
 
