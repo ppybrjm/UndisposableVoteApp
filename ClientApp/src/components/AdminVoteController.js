@@ -29,12 +29,12 @@ export class AdminVoteControll extends Component {
         let OpenShowButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.OpenShow}>Open Show</button></td>
         let CloseShowButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.CloseShow}>Close Show</button></td>
         let OpenChoiceButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.OpenPoll}>Open Choice</button></td>
-        let closeChoiceButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.ClosePoll}>Close Choice</button></td>
+        let CloseChoiceButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.ClosePoll}>Close Choice</button></td>
 
         let buttons;
         if (this.props.activeShow === false) { buttons = <tr> {OpenShowButton} </tr>}
         else if (this.props.activePoll === false) { buttons = <tr> {CloseShowButton} {OpenChoiceButton} </tr>}
-        else { buttons = <tr> {closeChoiceButton} </tr> }
+        else { buttons = <tr> {CloseChoiceButton} </tr> }
 
         return (
             <div className="button-container">                
