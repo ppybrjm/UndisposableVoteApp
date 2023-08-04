@@ -32,9 +32,9 @@ export class AdminVoteControll extends Component {
         let CloseChoiceButton = <td><button className="btn btn-primary btn-closePoll" onClick={this.ClosePoll}>Close Choice</button></td>
 
         let buttons;
-        if (this.props.activeShow === false) { buttons = <tr> {OpenShowButton} </tr>}
-        else if (this.props.activePoll === false) { buttons = <tr> {CloseShowButton} {OpenChoiceButton} </tr>}
-        else { buttons = <tr> {CloseChoiceButton} </tr> }
+        if (this.props.activeShow === false) { buttons = <tr>{OpenShowButton}</tr>}
+        else if (this.props.activePoll === false) { buttons = <tr>{CloseShowButton}{OpenChoiceButton}</tr>}
+        else { buttons = <tr>{CloseChoiceButton}</tr> }
 
         return (
             <div className="button-container">                

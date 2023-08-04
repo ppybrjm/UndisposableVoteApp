@@ -13,7 +13,7 @@ export class AdminVoteResultDisplay extends Component {
 
     title() {
         if (this.props.ongoing && this.props.loading) return "LOADING...";
-        else if (this.props.ongoing) return "Current Results..."
+        else if (this.props.ongoing) return "Current Results".concat(this.props.dotStr);
         else {
             if (this.props.A_Vote === this.props.B_Vote) return "Results IN: Draw!"
             else if (this.props.A_Vote > this.props.B_Vote) return "Results IN: △ Wins"

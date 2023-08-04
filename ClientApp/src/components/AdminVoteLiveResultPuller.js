@@ -11,6 +11,7 @@ export class AdminVoteLiveResultPuller extends Component {
             A_Vote: 0,
             B_Vote: 0,
             loading: true,
+            dot_num: 0,
         };
     }
 
@@ -24,7 +25,8 @@ export class AdminVoteLiveResultPuller extends Component {
     }
 
     async getPoll() {
-
+        const next_dot_num = ((this.state.dot_num+1)% 4);
+        this.setState({dot_num: next_dot_num});
 
         const response = await fetch('api/getPollInfo');
         const data = await response.json();
@@ -36,11 +38,13 @@ export class AdminVoteLiveResultPuller extends Component {
     }
 
     render() {
+        const dotNum = this.state.dot_num;
         const loading = this.state.loading;
         const voteA = this.state.A_Vote;
         const voteB = this.state.B_Vote;
+        const dotStr = '.'.repeat(dotNum);
         return (
-            <AdminVoteResultDisplay pullData={false} A_Vote={voteA} B_Vote={voteB} loading={loading} ongoing={true} />
+            <AdminVoteResultDisplay pullData={false} A_Vote={voteA} B_Vote={voteB} loading={loading} ongoing={true} dotStr={dotStr}/>
         );
     }
 }
