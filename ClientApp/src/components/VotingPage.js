@@ -71,12 +71,11 @@ export class VotingPage extends Component {
     }
         
     render () { 
+        //<p className='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong>, User_ID = {this.getUserId()}, user_Vote = {this.state.userVote}</p>       
+
         return (
           <div>
             <h1>What Should Princess Plum Do?</h1>
-
-            <p className='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong>, User_ID = {this.getUserId()}, user_Vote = {this.state.userVote}</p>       
-
             <table><tbody>
               <tr className="triangle-selectors">
                 <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}></div></td>

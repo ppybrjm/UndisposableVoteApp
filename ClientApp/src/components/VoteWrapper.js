@@ -9,10 +9,10 @@ export class VoteWrapper extends Component {
         super(props);
 
         this.state = { 
-        currentActiveShow: false,
-        currentActivePoll: false,
-        mostRecentPollID: 0,
-        loading: true
+            currentActiveShow: false,
+            currentActivePoll: false,
+            mostRecentPollID: 0,
+            loading: true
         };
     }
 
@@ -29,10 +29,10 @@ export class VoteWrapper extends Component {
         const response = await fetch('api/getPollInfo');
         const data = await response.json();
         this.setState({ 
-        currentActiveShow: data["value"]["openShow"],
-        currentActivePoll: data["value"]["openVote"], 
-        mostRecentPollID: data["value"]["recentPollId"],
-        loading: false 
+            currentActiveShow: data["value"]["openShow"],
+            currentActivePoll: data["value"]["openVote"], 
+            mostRecentPollID: data["value"]["recentPollId"],
+            loading: false 
         });
     }
 
@@ -47,10 +47,10 @@ export class VoteWrapper extends Component {
         else if (!activeShow) { voteComponent = <ShowNotStarted /> }
         else if (!activePoll) { voteComponent = <NoVote />}
         else {voteComponent = <VotingPage activePollId={recentPollID} />}
+        // <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>
 
         return (
         <div className="votePage page">
-            <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>
             { voteComponent }
         </div>
         );
