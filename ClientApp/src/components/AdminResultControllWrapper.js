@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Loading } from "./VotingPage";
-import { VoteSetting } from './VoteSetting';
+import { AdminVoteResultDisplay } from './AdminVoteResultDisplay';
 import { AdminVoteControll } from './AdminVoteController';
 
 import './VoteSetting.css';
@@ -66,8 +66,8 @@ export class AdminResultControllWrapper extends Component {
         }
 
         let resultComponent;
-        if (activeShow && activePoll) {resultComponent = <VoteSetting pullData={true}/>}
-        else if (activeShow && previousPole) {resultComponent = <VoteSetting pullData={false} A_Vote={voteA} B_Vote={voteB} />}
+        if (activeShow && activePoll) {resultComponent = <AdminVoteResultDisplay pullData={true}/>}
+        else if (activeShow && previousPole) {resultComponent = <AdminVoteResultDisplay pullData={false} A_Vote={voteA} B_Vote={voteB} />}
         else {resultComponent = <br />}
 
         //    <p className='hidden' aria-live="polite">state = {JSON.stringify(this.state, null, 2)}</p>

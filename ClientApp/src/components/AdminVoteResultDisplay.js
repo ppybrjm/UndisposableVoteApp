@@ -11,8 +11,8 @@ const options = {
 };
 
 
-export class VoteSetting extends Component {
-    static displayName = VoteSetting.name;
+export class AdminVoteResultDisplay extends Component {
+    static displayName = AdminVoteResultDisplay.name;
 
     constructor(props) {
         super(props);
