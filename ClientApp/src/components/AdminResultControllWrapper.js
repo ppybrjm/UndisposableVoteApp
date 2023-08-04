@@ -4,8 +4,6 @@ import { AdminVoteControll } from './AdminVoteController';
 import { AdminVoteLiveResultPuller } from './AdminVoteLiveResultPuller';
 import { AdminVoteResultDisplay } from './AdminVoteResultDisplay';
 
-import './VoteSetting.css';
-
 export class AdminResultControllWrapper extends Component {
     constructor(props) {
         super(props);

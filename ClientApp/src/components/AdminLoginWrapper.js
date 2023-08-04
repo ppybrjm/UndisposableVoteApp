@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Cookies } from "react-cookie";
 import { AdminResultControllWrapper } from './AdminResultControllWrapper';
-import './VoteSetting.css';
+import './Admin.css';
 
 
 const adminCookies = new Cookies();

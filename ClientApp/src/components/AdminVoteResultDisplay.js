@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
-import './VoteSetting.css';
 
 const options = {
     legend: 'none',
@@ -27,9 +26,9 @@ export class AdminVoteResultDisplay extends Component {
         const Neither = ((A+B) > 0) ? 0 : 1;
        
         return [
-            ["○ / △", "Count"],
-            ["○", B],
-            ["Neither", Neither],
+            ["O / △", "Count"],
+            ["O", B],
+            ["No Vote Yet", Neither],
             ["△", A],
         ];
     }
