@@ -1,14 +1,8 @@
-Voter Setting Page      
-    * VoteSetter Component continoulsy calls getResult
-    * VoteSetter UI is updated (PieChart & VoteCount)
-    * VoteSetter Component rename to "AdminVoteResultDisplay.js" & CSS file Change
-
+Dockerise
 HOST somewhere
-
 
 --------------------------
 
 > WHERE DO LOGS EVEN GO? / How do I set up my logger
-
 
 Vote Setter API         >> Password Protect
