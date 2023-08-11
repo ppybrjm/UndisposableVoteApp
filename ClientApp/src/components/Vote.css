@@ -9,6 +9,11 @@
 img.princessPlum {
     height: 25vh;
 }
+
+img.princessPlumActive {
+    height: 45vh;
+}
+
 .btn-Buy {
     background-color: #9b80a5;
     border-color: #ccc7ce;

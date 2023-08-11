@@ -35,7 +35,7 @@ export class NoVote extends Component {
         return (
             <div className="notShow">
                 <h1>Game in Progress ...</h1>
-                <img src={princessPlum} alt="princess" className="princessPlum" />
+                <img src={princessPlum} alt="princess" className="princessPlumActive" />
             </div>
         )
     }
