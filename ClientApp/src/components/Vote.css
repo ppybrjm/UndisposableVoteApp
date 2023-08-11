@@ -2,6 +2,19 @@
     background-image: linear-gradient(purple, blue,blue,cyan);
 }
 
+.notShow {
+    text-align: center;
+}
+
+img.princessPlum {
+    height: 25vh;
+}
+.btn-Buy {
+    background-color: #9b80a5;
+    border-color: #ccc7ce;
+    height: 15vh;
+}
+
 h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
     color: white;
