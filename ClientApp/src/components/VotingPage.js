@@ -102,17 +102,19 @@ export class VotingPage extends Component {
 
         return (
           <div>
+            <img class="twinkle twinkle-top" src="ClientApp/src/assets/Twinkle-1.png" />
             <h1>What Should Princess Plum Do?</h1>
             <table><tbody>
               <tr className="triangle-selectors">
-                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}></div></td>
-                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
+                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}><img class="arrow" src="ClientApp/src/assets/pink-arrow.png" /></div></td>
+                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}><img class="arrow" src="ClientApp/src/assets/blue-arrow.png"/></div></td>
               </tr>
               <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
+                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img src="ClientApp/src/assets/Triangle.png"/></button></td>
                 <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
               </tr>
             </tbody></table>
+            <img class="twinkle twinkle-bottom" src="ClientApp/src/assets/Twinkle-1.png" />
           </div>
         );
     }
