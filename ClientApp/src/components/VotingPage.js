@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Cookies } from "react-cookie";
-import princessPlum from '../assets/princessPlum.gif'
+import princessPlum from '../assets/princessPlum.gif';
+import twinkle from '../assets/Twinkle-1.png';
 
 import './Vote.css';
 
@@ -9,8 +10,12 @@ export class Loading extends Component {
     render () { 
         return (
             <div className="notShow">
-                <h1>Loading Backend ...</h1>
-                <img src={princessPlum} alt="princess" className="princessPlum" />
+                <div class="content-container">
+                    <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                    <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
+                    <h1>Loading Backend ...</h1>
+                    <img src={princessPlum} alt="princess" className="princessPlum" />
+                </div>
             </div>
         )
     }
@@ -20,11 +25,14 @@ export class ShowNotStarted extends Component {
     render () { 
         return (
         <div className="notShow">
-            <h1>The Game has not yet begun ...</h1>
-            <img src={princessPlum} alt="princess" className="princessPlum" />
-            <a href="https://tickets.edfringe.com/whats-on/save-the-princess" target="_self" rel="noopener noreferrer">
-                <button className="btn btn-primary btn-Buy">Buy Tickets</button>
-            </a>
+             <div class="content-container">
+                <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
+                <h1>The Game has not yet begun ...</h1>
+                <img src={princessPlum} alt="princess" className="princessPlum" />
+                <a href="https://tickets.edfringe.com/whats-on/save-the-princess" target="_self" rel="noopener noreferrer">
+                <button className="btn btn-primary btn-Buy">Buy Tickets</button></a>
+            </div>
         </div>
         )
     }
@@ -34,8 +42,12 @@ export class NoVote extends Component {
     render () { 
         return (
             <div className="notShow">
-                <h1>Game in Progress ...</h1>
-                <img src={princessPlum} alt="princess" className="princessPlumActive" />
+                <div class="content-container">
+                    <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                    <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
+                    <h1>Game in Progress ...</h1>
+                    <img src={princessPlum} alt="princess" className="princessPlumActive" />
+                </div>
             </div>
         )
     }

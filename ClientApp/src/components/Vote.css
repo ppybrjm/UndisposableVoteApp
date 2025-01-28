@@ -1,13 +1,29 @@
+@keyframes arrow-bob{
+    100%{
+      transform:translateY(15px);
+    }
+  }
+
 .votePage {
-    background-image: linear-gradient(purple, blue,blue,cyan);
+    background-image: linear-gradient(rgb(187, 2, 135), rgb(61, 38, 130),rgb(61, 38, 130),rgb(61, 38, 130),rgb(2, 122, 162));
+}
+
+.content-container{
+    margin-top: 5vh;
 }
 
 .notShow {
     text-align: center;
+    padding-top:10%;
 }
 
 img.princessPlum {
     height: 25vh;
+    animation: arrow-bob 0.5s linear;
+
+    :hover{
+        transform: translateX(100px);
+      }
 }
 
 img.princessPlumActive {
