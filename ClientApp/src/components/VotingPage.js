@@ -35,7 +35,7 @@ export class ShowNotStarted extends Component {
                 <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
                 <h1>The Game has not yet begun...</h1>
                 <img src={princessPlum} alt="princess" className="princessPlum" />
-                <a href="https://tickets.edfringe.com/whats-on/save-the-princess" target="_self" rel="noopener noreferrer">
+                <a href="https://www.unrestrictedview.co.uk/save-the-princess-2/?fbclid=PAZXh0bgNhZW0CMTEAAaYE9vhjkzPK5XftUCtU5jxX5Q0QUDVdh_-HsKenYiaKE9DVy9CZ1relSyo_aem_m4QtvqQMJxYAKU08NBCI5g" target="_self" rel="noopener noreferrer">
                 <button className="btn btn-primary btn-Buy">Buy Tickets</button></a>
             </div>
         </div>
