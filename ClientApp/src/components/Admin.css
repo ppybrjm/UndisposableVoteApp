@@ -13,7 +13,7 @@ input {
 
 h2 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-    color: white;
+    color: rgb(240, 240, 240);
     text-align: center;
     padding: 3vh
 }

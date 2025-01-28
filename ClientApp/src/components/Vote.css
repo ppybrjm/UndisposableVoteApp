@@ -8,6 +8,19 @@
     }
   }
 
+  .jersey-normal{
+    font-family: "Jersey 10", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .pixelify-sans {
+    font-family: "Pixelify Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
   /* .play-regular {
     font-family: "Play", serif;
     font-weight: 400;
@@ -49,16 +62,17 @@ img.princessPlumActive {
 }
 
 h1 {
-    font-family: "Play", serif;
+    font-family: "Jersey 10", serif;
     font-weight: 400;
-    font-style: normal;    
-    color: white;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: rgb(240, 240, 240);
     text-align: center;
     padding: 5vh
 }
 
 p.hidden {
-    color: white;
+    color: rgb(240, 240, 240);
 }
 
 table {
@@ -100,7 +114,7 @@ td {
     height: 20vh;
     width: 20vh;
     font-size: 10vh;
-    color: white;
+    color: rgb(240, 240, 240);
 }
 
 /* .btn-A {
