@@ -1,8 +1,24 @@
-@keyframes arrow-bob{
-    100%{
-      transform:translateY(15px);
+@keyframes arrow-bob {
+    from {
+      transform: translateX(0%);
+    }
+  
+    to {
+      transform: translateY(20%);
     }
   }
+
+  /* .play-regular {
+    font-family: "Play", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .play-bold {
+    font-family: "Play", serif;
+    font-weight: 700;
+    font-style: normal;
+  } */
 
 .votePage {
     background-image: linear-gradient(rgb(187, 2, 135), rgb(61, 38, 130),rgb(61, 38, 130),rgb(61, 38, 130),rgb(2, 122, 162));
@@ -19,16 +35,12 @@
 
 img.princessPlum {
     height: 25vh;
-    animation: arrow-bob 0.5s linear;
-
-    :hover{
-        transform: translateX(100px);
-      }
 }
 
 img.princessPlumActive {
     height: 45vh;
 }
+
 
 .btn-Buy {
     background-color: #9b80a5;
@@ -37,7 +49,9 @@ img.princessPlumActive {
 }
 
 h1 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    font-family: "Play", serif;
+    font-weight: 400;
+    font-style: normal;    
     color: white;
     text-align: center;
     padding: 5vh
@@ -98,3 +112,23 @@ td {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
+
+.arrow-bob{
+    animation: .5s steps(2,end) 1s infinite alternate arrow-bob;
+}
+
+.twinkle{
+    height: 15vh;
+  }
+  
+  .twinkle-top{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .twinkle-bottom{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }

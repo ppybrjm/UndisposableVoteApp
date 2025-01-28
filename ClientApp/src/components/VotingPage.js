@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Cookies } from "react-cookie";
 import princessPlum from '../assets/princessPlum.gif';
 import twinkle from '../assets/Twinkle-1.png';
+import triangle from '../assets/Triangle.png';
+import circle from '../assets/Circle.png';
+import pinkArrow from '../assets/pink-arrow.png';
+import blueArrow from '../assets/blue-arrow.png';
+
 
 import './Vote.css';
 
@@ -13,7 +18,7 @@ export class Loading extends Component {
                 <div class="content-container">
                     <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
                     <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
-                    <h1>Loading Backend ...</h1>
+                    <h1>Loading game...</h1>
                     <img src={princessPlum} alt="princess" className="princessPlum" />
                 </div>
             </div>
@@ -28,7 +33,7 @@ export class ShowNotStarted extends Component {
              <div class="content-container">
                 <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
                 <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
-                <h1>The Game has not yet begun ...</h1>
+                <h1>The Game has not yet begun...</h1>
                 <img src={princessPlum} alt="princess" className="princessPlum" />
                 <a href="https://tickets.edfringe.com/whats-on/save-the-princess" target="_self" rel="noopener noreferrer">
                 <button className="btn btn-primary btn-Buy">Buy Tickets</button></a>
@@ -45,7 +50,7 @@ export class NoVote extends Component {
                 <div class="content-container">
                     <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
                     <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
-                    <h1>Game in Progress ...</h1>
+                    <h1>Game in progress...</h1>
                     <img src={princessPlum} alt="princess" className="princessPlumActive" />
                 </div>
             </div>
@@ -114,19 +119,19 @@ export class VotingPage extends Component {
 
         return (
           <div>
-            <img class="twinkle twinkle-top" src="ClientApp/src/assets/Twinkle-1.png" />
+             <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+             <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
             <h1>What Should Princess Plum Do?</h1>
             <table><tbody>
               <tr className="triangle-selectors">
-                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}><img class="arrow" src="ClientApp/src/assets/pink-arrow.png" /></div></td>
-                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}><img class="arrow" src="ClientApp/src/assets/blue-arrow.png"/></div></td>
+                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}><img class="arrow" src={pinkArrow} /></div></td>
+                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}><img class="arrow" src={blueArrow}/></div></td>
               </tr>
               <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img src="ClientApp/src/assets/Triangle.png"/></button></td>
-                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
+                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img src={triangle}/></button></td>
+                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}><img src={circle}/></button></td>
               </tr>
             </tbody></table>
-            <img class="twinkle twinkle-bottom" src="ClientApp/src/assets/Twinkle-1.png" />
           </div>
         );
     }

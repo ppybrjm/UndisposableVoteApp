@@ -1,28 +1,13 @@
-/*animations*/
-@keyframes arrow-bob{
-  100%{
-    transform:translateY(15px);
-  }
-}
-
 /* Provide sufficient contrast against white background */
-.play-regular {
-  font-family: "Play", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.play-bold {
-  font-family: "Play", serif;
-  font-weight: 700;
-  font-style: normal;
-}
 
 input {
   margin: 1vh;
 }
 
 a {
+  font-family: "Play", serif;
+  font-weight: 400;
+  font-style: normal;
   color: #0366d6;
 }
 
@@ -36,25 +21,4 @@ code {
 
 .page {
   height:100vh
-}
-
-.arrow{
-  width: 100%;
-  animation: arrow-bob 0.5s linear;
-}
-
-.twinkle{
-  height: 15vh;
-}
-
-.twinkle-top{
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-.twinkle-bottom{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
 }
