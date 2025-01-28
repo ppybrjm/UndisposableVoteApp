@@ -124,12 +124,12 @@ export class VotingPage extends Component {
             <h1>What Should Princess Plum Do?</h1>
             <table><tbody>
               <tr className="triangle-selectors">
-                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}><img class="arrow" src={pinkArrow} /></div></td>
-                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}><img class="arrow" src={blueArrow}/></div></td>
+                <td><img class="arrow arrow-bob" src={pinkArrow} alt="pink arrow" /></td>
+                <td><img class="arrow arrow-bob" src={blueArrow} alt="blue arrow" /></td>
               </tr>
               <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img src={triangle}/></button></td>
-                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}><img src={circle}/></button></td>
+                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img src={triangle} alt="triangle" /></button></td>
+                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}><img src={circle} alt="circle" /></button></td>
               </tr>
             </tbody></table>
           </div>

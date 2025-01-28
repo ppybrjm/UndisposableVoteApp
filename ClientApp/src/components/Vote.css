@@ -103,7 +103,7 @@ td {
     color: white;
 }
 
-.btn-A {
+/* .btn-A {
     background-color: #A569BD;
     border-color: #A267B2;
 }
@@ -111,10 +111,14 @@ td {
 .btn-B {
     background-color: #1b6ec2;
     border-color: #1861ac;
-}
+} */
 
 .arrow-bob{
     animation: .5s steps(2,end) 1s infinite alternate arrow-bob;
+}
+
+.arrow{
+    height: 100%;
 }
 
 .twinkle{
