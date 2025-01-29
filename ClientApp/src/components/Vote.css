@@ -4,7 +4,7 @@
     }
   
     to {
-      transform: translateY(20%);
+      transform: translateY(-20%);
     }
   }
 
@@ -111,15 +111,19 @@ td {
     display: none;
 }
 
+/* td{
+    justify-content: center;
+    align-items: center;
+} */
+
 .btn-vote {
     margin: 2vh;
-    height: 20vh;
-    width: 20vh;
     font-size: 10vh;
     color: rgb(240, 240, 240);
+    box-shadow: 2px black;
 }
 
-/* .btn-A {
+.btn-A {
     background-color: #A569BD;
     border-color: #A267B2;
 }
@@ -127,7 +131,7 @@ td {
 .btn-B {
     background-color: #1b6ec2;
     border-color: #1861ac;
-} */
+}
 
 .arrow-bob{
     animation: .5s steps(2,end) 1s infinite alternate arrow-bob;
@@ -154,6 +158,9 @@ td {
   }
 
   .shape{
-    height: 20vh;
-    width: 20vh;
+    height: 23vh;
+    width: 23vh;
+    display:flex;
+    justify-self:center;
+    align-self:center;
   }
