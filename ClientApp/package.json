@@ -52,7 +52,7 @@
     "nth-check": "^3.0.1"
   },
   "scripts": {
-    "start": "rimraf ./build && react-scripts start",
+    "start": "rimraf ./build && react-scripts start && node aspnetcore-https && node aspnetcore-react",
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

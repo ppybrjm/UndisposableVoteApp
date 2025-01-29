@@ -22,6 +22,7 @@ export class Loading extends Component {
                     <img src={princessPlum} alt="princess" className="princessPlum" />
                 </div>
             </div>
+            
         )
     }
 }
@@ -119,19 +120,21 @@ export class VotingPage extends Component {
 
         return (
           <div>
-             <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
-             <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
-            <h1>What Should Princess Plum Do?</h1>
-            <table><tbody>
-              <tr className="triangle-selectors">
-                <td><img class="arrow arrow-bob" src={pinkArrow} alt="pink arrow" /></td>
-                <td><img class="arrow arrow-bob" src={blueArrow} alt="blue arrow" /></td>
-              </tr>
-              <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img src={triangle} alt="triangle" /></button></td>
-                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}><img src={circle} alt="circle" /></button></td>
-              </tr>
-            </tbody></table>
+                <div class="content-container">
+                    <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                    <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
+                    <h1 class="pt-10">What Should <br/> Princess Plum Do?</h1>
+                    <table><tbody>
+                    <tr className="triangle-selectors">
+                        <td><img class="arrow arrow-bob" src={pinkArrow} alt="pink arrow" /></td>
+                        <td><img class="arrow arrow-bob" src={blueArrow} alt="blue arrow" /></td>
+                    </tr>
+                    <tr>
+                        <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img class="shape" src={triangle} alt="triangle" /></button></td>
+                        <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}><img class="shape" src={circle} alt="circle" /></button></td>
+                    </tr>
+                    </tbody></table>
+            </div>
           </div>
         );
     }
