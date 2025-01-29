@@ -1,9 +1,51 @@
+@keyframes arrow-bob {
+    from {
+      transform: translateX(0%);
+    }
+  
+    to {
+      transform: translateY(-20%);
+    }
+  }
+
+  .jersey-normal{
+    font-family: "Jersey 10", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .pixelify-sans {
+    font-family: "Pixelify Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* .play-regular {
+    font-family: "Play", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .play-bold {
+    font-family: "Play", serif;
+    font-weight: 700;
+    font-style: normal;
+  } */
+
 .votePage {
-    background-image: linear-gradient(purple, blue,blue,cyan);
+    width:100%;
+    height:100%;
+    background-image: linear-gradient(rgb(187, 2, 135), rgb(61, 38, 130),rgb(61, 38, 130),rgb(61, 38, 130),rgb(2, 122, 162));
+}
+
+.content-container{
+    padding-top: 5vh;
 }
 
 .notShow {
     text-align: center;
+    padding-top:10%;
 }
 
 img.princessPlum {
@@ -14,6 +56,7 @@ img.princessPlumActive {
     height: 45vh;
 }
 
+
 .btn-Buy {
     background-color: #9b80a5;
     border-color: #ccc7ce;
@@ -21,14 +64,17 @@ img.princessPlumActive {
 }
 
 h1 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-    color: white;
+    font-family: "Jersey 10", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: rgb(240, 240, 240);
     text-align: center;
-    padding: 5vh
+    padding-top: 5vh
 }
 
 p.hidden {
-    color: white;
+    color: rgb(240, 240, 240);
 }
 
 table {
@@ -65,12 +111,16 @@ td {
     display: none;
 }
 
+/* td{
+    justify-content: center;
+    align-items: center;
+} */
+
 .btn-vote {
     margin: 2vh;
-    height: 20vh;
-    width: 20vh;
     font-size: 10vh;
-    color: white;
+    color: rgb(240, 240, 240);
+    box-shadow: 2px black;
 }
 
 .btn-A {
@@ -82,3 +132,35 @@ td {
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
+
+.arrow-bob{
+    animation: .5s steps(2,end) 1s infinite alternate arrow-bob;
+}
+
+.arrow{
+    width: 30vw;;
+}
+
+.twinkle{
+    height: 15vh;
+  }
+  
+  .twinkle-top{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .twinkle-bottom{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .shape{
+    height: 23vh;
+    width: 23vh;
+    display:flex;
+    justify-self:center;
+    align-self:center;
+  }

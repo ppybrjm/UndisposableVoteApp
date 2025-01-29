@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { Cookies } from "react-cookie";
-import princessPlum from '../assets/princessPlum.gif'
+import princessPlum from '../assets/princessPlum.gif';
+import twinkle from '../assets/Twinkle-1.png';
+import triangle from '../assets/Triangle.png';
+import circle from '../assets/Circle.png';
+import pinkArrow from '../assets/pink-arrow.png';
+import blueArrow from '../assets/blue-arrow.png';
+
 
 import './Vote.css';
 
@@ -9,8 +15,12 @@ export class Loading extends Component {
     render () { 
         return (
             <div className="notShow">
-                <h1>Loading Backend ...</h1>
-                <img src={princessPlum} alt="princess" className="princessPlum" />
+                <div class="content-container">
+                    <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                    <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
+                    <h1>Loading game...</h1>
+                    <img src={princessPlum} alt="princess" className="princessPlum" />
+                </div>
             </div>
         )
     }
@@ -20,11 +30,14 @@ export class ShowNotStarted extends Component {
     render () { 
         return (
         <div className="notShow">
-            <h1>The Game has not yet begun ...</h1>
-            <img src={princessPlum} alt="princess" className="princessPlum" />
-            <a href="https://tickets.edfringe.com/whats-on/save-the-princess" target="_self" rel="noopener noreferrer">
-                <button className="btn btn-primary btn-Buy">Buy Tickets</button>
-            </a>
+             <div class="content-container">
+                <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle" />
+                <h1>The Game has not yet begun...</h1>
+                <img src={princessPlum} alt="princess" className="princessPlum" />
+                <a href="https://www.unrestrictedview.co.uk/save-the-princess-2/?fbclid=PAZXh0bgNhZW0CMTEAAaYE9vhjkzPK5XftUCtU5jxX5Q0QUDVdh_-HsKenYiaKE9DVy9CZ1relSyo_aem_m4QtvqQMJxYAKU08NBCI5g" target="_self" rel="noopener noreferrer">
+                <button className="btn btn-primary btn-Buy">Buy Tickets</button></a>
+            </div>
         </div>
         )
     }
@@ -34,8 +47,12 @@ export class NoVote extends Component {
     render () { 
         return (
             <div className="notShow">
-                <h1>Game in Progress ...</h1>
-                <img src={princessPlum} alt="princess" className="princessPlumActive" />
+                <div class="content-container">
+                    <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                    <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
+                    <h1>Game in progress...</h1>
+                    <img src={princessPlum} alt="princess" className="princessPlumActive" />
+                </div>
             </div>
         )
     }
@@ -101,19 +118,23 @@ export class VotingPage extends Component {
         //<p className='hidden' aria-live="polite">Current Vote: <strong>{this.state.CurrentVote}</strong>, User_ID = {this.getUserId()}, user_Vote = {this.state.userVote}</p>       
 
         return (
-          <div>
-            <h1>What Should Princess Plum Do?</h1>
-            <table><tbody>
-              <tr className="triangle-selectors">
-                <td><div className={'triangle-down triange-A-select ' + (this.state.CurrentVote !== "A" ? "hide" : "")}></div></td>
-                <td><div className={'triangle-down triange-B-select ' + (this.state.CurrentVote !== "B" ? "hide" : "")}></div></td>
-              </tr>
-              <tr>
-                <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}>△</button></td>
-                <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}>○</button></td>
-              </tr>
-            </tbody></table>
-          </div>
+            <div>
+            <div class="content-container">
+                <img src={twinkle} class="twinkle twinkle-top" alt="Twinkle" />
+                <img  src={twinkle} class="twinkle twinkle-bottom" alt="Twinkle"/>
+                <h1 class="pt-10">What Should <br/> Princess Plum Do?</h1>
+                <table><tbody>
+                <tr className="triangle-selectors">
+                    <td><img class="arrow arrow-bob" src={pinkArrow} alt="pink arrow" /></td>
+                    <td><img class="arrow arrow-bob" src={blueArrow} alt="blue arrow" /></td>
+                </tr>
+                <tr>
+                    <td><button className="btn-vote btn-A" value="A" onClick={this.setVote}><img class="shape" src={triangle} alt="triangle" /></button></td>
+                    <td><button className="btn-vote btn-B" value="B" onClick={this.setVote}><img class="shape" src={circle} alt="circle" /></button></td>
+                </tr>
+                </tbody></table>
+        </div>
+      </div> 
         );
     }
 }

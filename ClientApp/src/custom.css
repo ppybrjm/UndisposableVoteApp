@@ -1,9 +1,13 @@
 /* Provide sufficient contrast against white background */
+
 input {
   margin: 1vh;
 }
 
 a {
+  font-family: "Jersey 10", serif;
+    font-weight: 400;
+    font-style: normal;
   color: #0366d6;
 }
 

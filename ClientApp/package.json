@@ -7,6 +7,7 @@
     "http-proxy-middleware": "^2.0.6",
     "jquery": "^3.6.3",
     "merge": "^2.1.1",
+    "npm": "^11.0.0",
     "oidc-client": "^1.11.5",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
@@ -51,8 +52,7 @@
     "nth-check": "^3.0.1"
   },
   "scripts": {
-    "prestart": "node aspnetcore-https && node aspnetcore-react",
-    "start": "rimraf ./build && react-scripts start",
+    "start": "rimraf ./build && react-scripts start && node aspnetcore-https && node aspnetcore-react",
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
